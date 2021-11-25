@@ -1,0 +1,16 @@
+/**
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* (pour une requête de type INSERT)
+* l'architecture d'InnoDB ne permet pas de bloquer l'incrémentation d'une clé en AutoIncrement
+* lorsque l'un des champs suivants n'a pas pu être inséré (par ex. un attribut en UNIQUE KEY)
+* http://stackoverflow.com/questions/2787910/why-does-mysql-autoincrement-increase-on-failed-inserts
+*
+* solutions plus rapides :
+* INSERT IGNORE + SELECT @@warning_count (https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict)
+* INSERT ON DUPLICATE KEY UPDATE
+* http://stackoverflow.com/questions/548541/insert-ignore-vs-insert-on-duplicate-key-update#548570
+* http://stackoverflow.com/questions/5924762/prevent-autoincrement-on-mysql-duplicate-insert?rq=1
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*/
+
+/* @see liste des constantes d'erreur MySql (doc api oracle) http://dev.mysql.com/doc/refman/5.6/en/error-messages-server.html */

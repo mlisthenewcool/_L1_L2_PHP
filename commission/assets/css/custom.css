@@ -1,0 +1,11 @@
+body {
+     padding-top: 80px;
+}
+
+textarea {
+  resize: none;
+}
+
+.jumbotron {
+    background-color: white;
+}
